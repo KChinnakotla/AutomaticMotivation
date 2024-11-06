@@ -12,11 +12,15 @@ Basic understanding of how to set up and schedule tasks on your OS.
 
 ### Setup
 #### Clone this repository:
+```
 git clone https://github.com/KChinnakotla/motivational-email-sender.git
 cd motivational-email-sender
+```
 
 #### Install the required Python packages:
+```
 pip install -r requirements.txt
+```
 
 #### Get a ZenQuotes API Key (Optional):
 
@@ -28,18 +32,19 @@ In the login file, enter your respective login information (this acts as an env 
 
 ### How to Use
 #### Run the Script Manually:
-
+```
 python send_automatic_email.py
+```
 
 #### Schedule the Script to Run Daily:
 
 Windows: Use Task Scheduler to run the script every morning at a set time. Set up Task Scheduler to run python with the path to your script as an argument.
 
 Linux/macOS: Use cron to schedule the script daily. Example cron job to run at 7:00 AM every day:
-
+```
 0 7 * * * /usr/bin/python3 /path/to/send_automatic_email.py
 (Adjust the Python interpreter path and script path as needed.)
-
+```
 ### Example Email Output
 Every morning, you'll receive an email that looks like this:
 
