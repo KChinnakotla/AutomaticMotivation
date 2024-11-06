@@ -3,7 +3,7 @@ import random
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from password import getPassword
+from loginInfo import getPassword, getReciever,getSender, getSubject
 
 # Fetch quotes from the ZenQuotes API
 def fetch_quotes():
@@ -23,7 +23,7 @@ def select_quote(quotes):
 
 # Send the selected quote via email
 def send_email(quote, sender_email, receiver_email, app_password):
-    subject = "Chin Up Kid, They'd Kill To See You Fall"
+    subject = getSubject()
     message = "Here's the message for today:"
     body = f"{message}\n\n{quote}\n\nSee you tomorrow!"
 
@@ -47,11 +47,10 @@ def main():
     quotes = fetch_quotes()
     if quotes:
         quote_of_the_day = select_quote(quotes)
-        print(f"Selected Quote: {quote_of_the_day}")
 
         # Your email details
-        sender_email = "keshav.chinnakotla@gmail.com"
-        receiver_email = "keshav.chinnakotla@gmail.com"
+        sender_email = getSender()
+        receiver_email = getReciever()
         app_password = getPassword()  # Use the app password if 2FA is enabled
 
         send_email(quote_of_the_day, sender_email, receiver_email, app_password)
